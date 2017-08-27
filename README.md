@@ -1,8 +1,8 @@
 # LightOperations
 ## Description
-Super light framework based on Operations, it eases the creation of operations and their data coupling in OperationQueues.
+Super light framework based on Operations, it eases the creation of operations and their data binding in OperationQueues.
 
-* A ready-to-sublcass LightOperationEliminates eliminates the need of boiler plate code when creating asynchronous operations and provides KVO observers off the shelf. 
+* A ready-to-sublcass LightOperation eliminates the need of boiler plate code when creating asynchronous operations and provides the relevant KVO state notifications off the shelf. 
 
 * A Coupler class can make your life easy when using OperationQueues. The Coupler class allows to pass the result of the first operation, transform it (optionally) and pass it as input data of the next operation.
 It will also set the correct dependencies between the two operations.
