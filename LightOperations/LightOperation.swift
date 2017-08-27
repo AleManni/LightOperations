@@ -19,6 +19,7 @@ public enum OperationState: String {
 public enum OperationError: Error {
     case networkError(Error)
     case unexpectedInputType(Any)
+    case inputDataMissing
     case genericError(Error)
 }
 
@@ -47,7 +48,7 @@ open class LightOperation : Operation {
         return true
     }
 
-    var state = OperationState.ready {
+    public var state = OperationState.ready {
         willSet {
             willChangeValue(forKey: state.keyPath)
             willChangeValue(forKey: newValue.keyPath)
