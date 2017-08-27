@@ -8,11 +8,16 @@
 
 import Foundation
 
-typealias OperationTransformer = (Any) -> Any?
+/**
+Transforming function
+- seealso: `public init(finishedOperation: LightOperation, startingOperation: LightOperation, transformer: OperationTransformer?`, for a description of the errors that can be thrown
+*/
+public typealias OperationTransformer = (Any) -> Any?
 
 /**
-This class provies an interface between two instances of LightOperations, allowing to pass and optionally transform the finalResult of the finishedOperaton into the initialData of the startingOperation.
- This same class will also take care of setting thw correct dependencies between the two operations.
+This class provides an interface between two instances of LightOperations, allowing to pass the finalResult of the finishedOperaton into the initialData of the startingOperation.
+ This same class will also automatically take care of setting the correct dependencies between the finished operation and the starting operation.
+ A transformation block can be injected through initialization, in order to transform the oputut of the finishedOperation before passing it to the input of the startingOperation.
 */
 public class CouplerOperation: Operation {
     private var finishedOperation: LightOperation
@@ -45,8 +50,13 @@ public class CouplerOperation: Operation {
     override open var isCancelled: Bool {
         return state == .cancelled
     }
-
-    init(finishedOperation: LightOperation, startingOperation: LightOperation, transformer: OperationTransformer? = { input in
+/**
+     Initialize the coupler operation
+     - Parameter finishedOperation: the input operation. This operation must be a sublcass of LightOperation
+     - Parameter startingOperation: the output operation. This operation must be a sublcass of LightOperation
+     - Parameter transformer:  an optional transformer block. If this parameter is `nil`, the output of the finished operation will be passed directly to the input of the startingOperation
+ */
+    public init(finishedOperation: LightOperation, startingOperation: LightOperation, transformer: OperationTransformer? = { input in
         return input}) {
         self.finishedOperation = finishedOperation
         self.startingOperation = startingOperation
