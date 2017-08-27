@@ -9,7 +9,7 @@ It will also set the correct dependencies between the two operations.
 
 You can see this framework in action in my project GeoApp.
 
-Notes and tests coming soon. 
+Tests coming soon. 
 
 ## Installation
 CocoaPods is a dependency manager for Cocoa projects. You can install it with the following command:
