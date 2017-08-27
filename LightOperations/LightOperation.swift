@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum OperationState: String {
+public enum OperationState: String {
     case ready, executing, finished, cancelled
 
     var keyPath: String {
@@ -24,7 +24,7 @@ public enum OperationError: Error {
 
 public enum OperationFinalResult<T> {
     case success(T)
-    case error(OperationError)
+    case failure(OperationError)
 }
 
 /**
@@ -41,7 +41,7 @@ open class LightOperation : Operation {
 
     public var operationFinalResult: OperationFinalResult<Any>?
     public var initialData: Any?
-    var operationCompletion: ((OperationFinalResult<Any>) -> Void)
+    public var operationCompletion: ((OperationFinalResult<Any>) -> Void)
 
     override open var isAsynchronous: Bool {
         return true
@@ -72,7 +72,7 @@ open class LightOperation : Operation {
 /**
      This initializer provides the opportunity to pass a completion block that can be executed at any point, e.g. at the end of the main() block of at any entry point provided by the state observer
  */
-    init(operationCompletion: @escaping ((OperationFinalResult<Any>) -> Void) = emptyBlock) {
+    public init(operationCompletion: @escaping ((OperationFinalResult<Any>) -> Void) = emptyBlock) {
         self.operationCompletion = operationCompletion
         super.init()
         self.name = String(describing: self)
