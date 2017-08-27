@@ -1,6 +1,6 @@
 # LightOperations
 ## Description
-Super light framework based on Operations, it eases the creation of operations and their data binding in OperationQueues.
+Super light framework based on Operation, it eases the creation of operations and their data binding in OperationQueues.
 
 * A ready-to-sublcass LightOperation eliminates the need of boiler plate code when creating asynchronous operations and provides the relevant KVO state notifications off the shelf. 
 
