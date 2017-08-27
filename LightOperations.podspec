@@ -6,7 +6,8 @@ spec.ios.deployment_target = '9.0'
 spec.requires_arc = true
 
   spec.version = "1.0.0"
-spec.license = { :type => "MIT", :file => "LICENSE" }
+#spec.license = { :type => "MIT", :file => "LICENSE" }
+spec.license = "MIT"
 spec.authors = { "Alessandro Manni" => "ale_manni@icloud.com" }
 spec.homepage = "https://github.com/AleManni/LightOperations"
 spec.social_media_url = "https://github.com/AleManni/LightOperations.git"
