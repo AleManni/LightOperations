@@ -1,11 +1,17 @@
-Pod::Spec.new do |s|
-  spec.name         = 'LightOperations'
-  spec.version      = '1.0.0'
-  spec.license      = { :type => 'MIT' }
-  spec.homepage     = 'https://github.com/AleManni/LightOperations'
-  spec.authors      = { 'Alessandro Manni' => 'ale_manni@icloud.com' }
-  spec.summary      = 'Light framework for asynchronous operations and operation queues'
-  spec.source       = { :git => 'https://github.com/AleManni/LightOperations.git', :tag => 'v1.0.0' }
-  spec.source_files = 'LightOperations', 'LightOperations/**/*.{h,m}'
-  spec.framework    = 'SystemConfiguration'
+Pod::Spec.new do |spec|
+spec.platform = :ios
+spec.ios.deployment_target = '9.0'
+  spec.name = "LightOperations"
+ spec.summary = "Light framework for asynchronous operations and operation queues"
+spec.requires_arc = true
+
+  spec.version = "1.0.0"
+spec.license = { :type => "MIT" }
+spec.authors = { "Alessandro Manni" => "ale_manni@icloud.com" }
+spec.homepage = "https://github.com/AleManni/LightOperations"
+spec.social_media_url = "https://github.com/AleManni/LightOperations.git"
+spec.source = { :git => "https://github.com/AleManni/LightOperations.git", :tag => "v#{spec.version}" }
+  spec.license      = { :type => "MIT" }
+  spec.module_name = "LightOperations" 
+  spec.source_files = "LightOperations/**/*.{swift}"
 end
