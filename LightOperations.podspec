@@ -4,7 +4,7 @@ spec.ios.deployment_target = '9.0'
   spec.name = "LightOperations"
  spec.summary = "Light framework for asynchronous operations and operation queues"
 spec.requires_arc = true
-spec.version = "1.0.4"
+spec.version = "1.0.5"
 spec.license = { :type => "MIT", :file => "LICENSE" }
 spec.authors = { "Alessandro Manni" => "ale_manni@icloud.com" }
 spec.homepage = "https://github.com/AleManni/LightOperations"

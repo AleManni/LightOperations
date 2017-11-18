@@ -37,9 +37,6 @@ public enum OperationFinalResult<T> {
  */
 open class LightOperation : Operation {
 
-    static let emptyBlock: (OperationFinalResult<Any>)-> Void = { _ in
-    }
-
     public var operationFinalResult: OperationFinalResult<Any>?
     public var initialData: Any?
     public var operationCompletion: ((OperationFinalResult<Any>) -> Void)
@@ -71,9 +68,9 @@ open class LightOperation : Operation {
         return state == .cancelled
     }
 /**
-     This initializer provides the opportunity to pass a completion block that can be executed at any point, e.g. at the end of the main() block of at any entry point provided by the state observer
+     This initializer provides the opportunity to pass a completion block handling a OperationFinalResult type. The block can be executed at any point, e.g. at the end of the main() block of at any entry point provided by the state observer.
  */
-    public init(operationCompletion: @escaping ((OperationFinalResult<Any>) -> Void) = emptyBlock) {
+    public init(operationCompletion: @escaping ((OperationFinalResult<Any>) -> Void) = { _ in }) {
         self.operationCompletion = operationCompletion
         super.init()
         self.name = String(describing: self)
